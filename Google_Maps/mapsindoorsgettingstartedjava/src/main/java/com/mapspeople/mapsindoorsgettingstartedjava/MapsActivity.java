@@ -230,6 +230,27 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         mpDirectionsService.query(mUserLocation, mpLocation.getPoint());
     }
 
+    @Override
+    public void onRouteResult(@Nullable MPRoute mpRoute, @Nullable MIError miError) {
+        //Return if either error is not null or the route is null
+        if (miError != null || mpRoute == null) {
+            new AlertDialog.Builder(this)
+                    .setTitle("Something went wrong")
+                    .setMessage("Something went wrong when generating the route. Try again or change your destination/origin")
+                    .show();
+            return;
+        }
+        //Create the MPDirectionsRenderer if it has not been instantiated.
+        if (mpDirectionsRenderer == null) {
+            mpDirectionsRenderer = new MPDirectionsRenderer(mMapControl);
+        }
+        //Set the route on the Directions renderer
+        mpDirectionsRenderer.setRoute(mpRoute);
+        //Create a new instance of the navigation fragment
+        mNavigationFragment = NavigationFragment.newInstance(mpRoute, this);
+        //Add the fragment to the BottomSheet
+        addFragmentToBottomSheet(mNavigationFragment);
+    }
 
     /**
      * Enables live data for the map.
@@ -264,27 +285,5 @@ public class MapsActivity extends AppCompatActivity implements OnMapReadyCallbac
         runOnUiThread(()-> {
             mMapControl.setMapPadding(0,0,0,0);
         });
-    }
-
-    @Override
-    public void onRouteResult(@Nullable MPRoute mpRoute, @Nullable MIError miError) {
-        //Return if either error is not null or the route is null
-        if (miError != null || mpRoute == null) {
-            new AlertDialog.Builder(this)
-                    .setTitle("Something went wrong")
-                    .setMessage("Something went wrong when generating the route. Try again or change your destination/origin")
-                    .show();
-            return;
-        }
-        //Create the MPDirectionsRenderer if it has not been instantiated.
-        if (mpDirectionsRenderer == null) {
-            mpDirectionsRenderer = new MPDirectionsRenderer(mMapControl);
-        }
-        //Set the route on the Directions renderer
-        mpDirectionsRenderer.setRoute(mpRoute);
-        //Create a new instance of the navigation fragment
-        mNavigationFragment = NavigationFragment.newInstance(mpRoute, this);
-        //Add the fragment to the BottomSheet
-        addFragmentToBottomSheet(mNavigationFragment);
     }
 }
