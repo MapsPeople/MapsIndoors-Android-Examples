@@ -76,7 +76,7 @@ class WayfindingFragment : Fragment(), OnMapReadyCallback {
             //Enable Live Data on the map
             if (miError == null) {
                 //No errors so getting the first venue (in the white house solution the only one)
-                val venue = MapsIndoors.getVenues()!!.currentVenue
+                val venue = MapsIndoors.getVenues()?.defaultVenue
 
                 getRoute()
 

@@ -60,7 +60,7 @@ class LocationDetailsFragment : Fragment(), OnMapReadyCallback {
             //Enable Live Data on the map
             if (miError == null) {
                 //No errors so getting the first venue (in the white house solution the only one)
-                val venue = MapsIndoors.getVenues()!!.currentVenue
+                val venue = MapsIndoors.getVenues()?.defaultVenue
                 activity?.runOnUiThread {
                     if (venue != null) {
                         //Animates the camera to fit the new venue

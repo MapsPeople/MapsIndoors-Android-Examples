@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.github.davidmoten.guavamini.Maps
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
@@ -64,7 +65,7 @@ class LocationClusteringFragment : Fragment(), OnMapReadyCallback {
             //Enable Live Data on the map
             if (miError == null) {
                 //No errors so getting the first venue (in the white house solution the only one)
-                val venue = MapsIndoors.getVenues()!!.currentVenue
+                val venue = MapsIndoors.getVenues()?.defaultVenue
                 activity?.runOnUiThread {
                     if (venue != null) {
                         //Animates the camera to fit the new venue

@@ -35,7 +35,6 @@ class LocationSourcesFragment : Fragment(), OnMapReadyCallback {
     private var baseDisplayRule: WeakReference<MPDisplayRule?>? = null
     private var robotDisplayRule: MPDisplayRule? = null
     private var mLocations: ArrayList<MPLocation>? = null
-    private var mVacuumMap: HashMap<String, RobotVacuum> = HashMap()
     private var mRobotVacuumLocationSource: RobotVacuumLocationSource? = null
 
     private var mUpdateTimer: Timer? = null
@@ -78,7 +77,7 @@ class LocationSourcesFragment : Fragment(), OnMapReadyCallback {
             //Enable Live Data on the map
             if (miError == null) {
                 //No errors so getting the first venue (in the white house solution the only one)
-                val venue = MapsIndoors.getVenues()!!.currentVenue
+                val venue = MapsIndoors.getVenues()?.defaultVenue
                 activity?.runOnUiThread {
                     if (venue != null) {
                         //Animates the camera to fit the new venue
@@ -115,8 +114,6 @@ class LocationSourcesFragment : Fragment(), OnMapReadyCallback {
             val charge = nextInt(1, 100)
             val floorIndex = nextInt(4) * 10
 
-            val robotVacuum = RobotVacuum(charge, startPosition)
-
             var mpLocation = MPLocation.Builder(robotName)
                 .setPosition(startPosition.lat, startPosition.lng)
                 .setFloorIndex(floorIndex)
@@ -124,7 +121,7 @@ class LocationSourcesFragment : Fragment(), OnMapReadyCallback {
                 .setBuilding("Stigsborgvej")
                 .build()
 
-            robotDisplayRule = MPDisplayRule("robot", baseDisplayRule!!)
+            robotDisplayRule = MPDisplayRule(robotName, baseDisplayRule!!)
             robotDisplayRule?.isVisible = true
 
             if (charge >= 60) {
@@ -134,8 +131,6 @@ class LocationSourcesFragment : Fragment(), OnMapReadyCallback {
             }else {
                 robotDisplayRule?.setIcon(R.drawable.ic_baseline_robo_vacuum, Color.RED)
             }
-
-            mVacuumMap[mpLocation.locationId] = robotVacuum
 
             MapsIndoors.addDisplayRuleForLocation(mpLocation, robotDisplayRule!!)
             mLocations?.add(mpLocation)
@@ -152,8 +147,7 @@ class LocationSourcesFragment : Fragment(), OnMapReadyCallback {
         var updatedLocations = ArrayList<MPLocation>()
         mLocations?.forEach {
             var newPosition = getRandomPosition()
-            var newLocation = MPLocation.Builder(it).setPosition(MPPoint(newPosition.lat, newPosition.lng), 20)
-            var vacuum = mVacuumMap[it.locationId]
+            var newLocation = MPLocation.Builder(it).setPosition(MPPoint(newPosition.lat, newPosition.lng))
             var charge = nextInt(1, 100)
             updatedLocations.add(newLocation.build())
 
