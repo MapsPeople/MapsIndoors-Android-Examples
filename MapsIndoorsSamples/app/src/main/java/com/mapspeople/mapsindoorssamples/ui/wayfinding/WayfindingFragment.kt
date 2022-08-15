@@ -97,7 +97,9 @@ class WayfindingFragment : Fragment(), OnMapReadyCallback {
 
     fun getRoute() {
         val directionsService = MPDirectionsService(requireContext())
-        mDirectionsRenderer = MPDirectionsRenderer(mMapControl!!)
+        if (mDirectionsRenderer == null) {
+            mDirectionsRenderer = MPDirectionsRenderer(mMapControl!!)
+        }
 
         directionsService.setRouteResultListener { mpRoute, miError ->
             if (miError == null && mpRoute != null) {

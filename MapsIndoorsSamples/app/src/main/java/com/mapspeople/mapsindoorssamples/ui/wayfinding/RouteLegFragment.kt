@@ -20,7 +20,6 @@ class RouteLegFragment : Fragment() {
     private var mStep: String? = null
     private var mDuration: Int? = null
     private var mDistance: Int? = null
-    private var actionNames: Array<String?>? = null
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         _binding = FragmentRouteLegBinding.inflate(inflater, container, false)
