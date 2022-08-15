@@ -46,4 +46,6 @@ dependencyResolutionManagement {
 }
 rootProject.name = "MapsIndoors Getting Started"
 include ':mapsindoorsgettingstartedkotlin'
+include ':mapsindoorsgettingstartedbasickotlin'
 include ':mapsindoorsgettingstartedjava'
+include ':mapsindoorsgettingstartedbasicjava'
