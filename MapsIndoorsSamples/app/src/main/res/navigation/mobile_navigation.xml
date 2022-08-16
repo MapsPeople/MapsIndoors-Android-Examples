@@ -34,4 +34,10 @@
         android:name="com.mapspeople.mapsindoorssamples.ui.wayfinding.WayfindingFragment"
         android:label="@string/menu_slideshow"
         tools:layout="@layout/fragment_wayfinding" />
+
+    <fragment
+        android:id="@+id/nav_positioning"
+        android:name="com.mapspeople.mapsindoorssamples.ui.positioning.PositioningFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_positioning" />
 </navigation>
