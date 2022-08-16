@@ -19,5 +19,8 @@
         <item
             android:id="@+id/nav_wayfinding"
             android:title="Wayfinding" />
+        <item
+            android:id="@+id/nav_positioning"
+            android:title="Positioning" />
     </group>
 </menu>
