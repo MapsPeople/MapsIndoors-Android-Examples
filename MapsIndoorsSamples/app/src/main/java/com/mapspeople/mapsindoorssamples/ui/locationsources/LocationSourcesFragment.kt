@@ -167,6 +167,16 @@ class LocationSourcesFragment : Fragment(), OnMapReadyCallback {
         mRobotVacuumLocationSource?.updateLocations(updatedLocations)
     }
 
+    override fun onStop() {
+        super.onStop()
+        stopUpdatingPositions()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        startUpdatingPositions()
+    }
+
     private fun startUpdatingPositions() {
         mUpdateTimer?.cancel()
         mUpdateTimer = Timer()

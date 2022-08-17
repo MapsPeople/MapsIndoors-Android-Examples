@@ -22,5 +22,8 @@
         <item
             android:id="@+id/nav_positioning"
             android:title="Positioning" />
+        <item
+            android:id="@+id/nav_search"
+            android:title="Search" />
     </group>
 </menu>
