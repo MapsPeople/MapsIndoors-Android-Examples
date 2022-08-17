@@ -36,6 +36,26 @@
         tools:layout="@layout/fragment_wayfinding" />
 
     <fragment
+        android:id="@+id/nav_search"
+        android:name="com.mapspeople.mapsindoorssamples.ui.search.SearchFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_nav_search_to_nav_search_fullscreen"
+            app:destination="@id/nav_search_fullscreen" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/nav_search_fullscreen"
+        android:name="com.mapspeople.mapsindoorssamples.ui.search.FullscreenSearchFragment"
+        android:label="fullscreen"
+        tools:layout="@layout/fragment_fullscreen_search">
+        <action
+            android:id="@+id/action_nav_search_fullscreen_to_nav_search"
+            app:destination="@id/nav_search" />
+    </fragment>
+
+    <fragment
         android:id="@+id/nav_positioning"
         android:name="com.mapspeople.mapsindoorssamples.ui.positioning.PositioningFragment"
         android:label="@string/menu_slideshow"

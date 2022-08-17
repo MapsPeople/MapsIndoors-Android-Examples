@@ -179,7 +179,7 @@ class MapsActivity : AppCompatActivity(), OnRouteResultListener {
         mpRoutingProvider?.query(mUserLocation, mpLocation.point)
     }
 
-    /**
+/**
      * The result callback from the route query. Starts the rendering of the route and opens up a new instance of the navigation fragment on the bottom sheet.
      * @param route the route model used to render a navigation view.
      * @param miError an MIError if anything goes wrong when generating a route

@@ -1,4 +1,4 @@
-package com.mapspeople.mapsindoorstemplate
+package com.mapspeople.mapsindoorssamples.ui.search
 
 import android.content.Context
 import androidx.recyclerview.widget.RecyclerView
@@ -7,12 +7,10 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import com.bumptech.glide.Glide
 import com.mapsindoors.coresdk.MPLocation
 import com.mapsindoors.coresdk.MapsIndoors
 import com.mapsindoors.coresdk.OnLocationSelectedListener
-
-import com.mapspeople.mapsindoorstemplate.databinding.FragmentSearchItemBinding
+import com.mapspeople.mapsindoorssamples.databinding.FragmentSearchItemBinding
 
 class MPSearchItemRecyclerViewAdapter : RecyclerView.Adapter<MPSearchItemRecyclerViewAdapter.ViewHolder>() {
     private var mLocations: List<MPLocation> = ArrayList()
@@ -28,7 +26,11 @@ class MPSearchItemRecyclerViewAdapter : RecyclerView.Adapter<MPSearchItemRecycle
         val item = mLocations[position]
         var iconUrl = getTypeIcon(item)
         iconUrl?.let {
-            Glide.with(context).load(iconUrl).into(holder.icon)
+            MapsIndoors.getImageProvider().loadImageAsync(it) { bitmap, error ->
+                if (bitmap != null && error == null) {
+                    holder.icon.setImageBitmap(bitmap)
+                }
+            }
         }
 
         holder.nameView.text = item.name

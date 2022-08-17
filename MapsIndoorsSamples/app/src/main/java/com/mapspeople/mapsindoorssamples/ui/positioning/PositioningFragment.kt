@@ -93,7 +93,7 @@ class PositioningFragment : Fragment(), OnMapReadyCallback {
             mMapControl?.showUserPosition(true)
 
             if (miError == null) {
-                val venue = MapsIndoors.getVenues()!!.currentVenue
+                val venue = MapsIndoors.getVenues()?.defaultVenue
                 activity?.runOnUiThread {
                     venue?.let { mMapControl?.goTo(venue) }
                 }
