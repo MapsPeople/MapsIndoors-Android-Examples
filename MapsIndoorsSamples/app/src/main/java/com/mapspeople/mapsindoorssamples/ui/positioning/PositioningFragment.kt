@@ -39,6 +39,7 @@ class PositioningFragment : Fragment(), OnMapReadyCallback {
 
         // Create a position provider
         mPositionProvider = PositionProvider()
+        mPositionProvider?.start()
 
         MapsIndoors.load(requireActivity().applicationContext, "gettingstarted") {
             // Attach the position provider to the SDK
@@ -70,7 +71,6 @@ class PositioningFragment : Fragment(), OnMapReadyCallback {
                     mMap?.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLngConverter.toLatLng(position.point!!.latLng), 20f))
                 }
             }
-
         })
 
         return root
