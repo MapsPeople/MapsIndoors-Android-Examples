@@ -31,7 +31,7 @@ class LocationSourcesFragment : Fragment(), OnMapReadyCallback {
     private var mMapView: View? = null
     private var mMapControl: MapControl? = null
 
-    private var BASE_POSITION = MPLatLng(57.0582502, 9.9504788)
+    private val BASE_POSITION = MPLatLng(57.0582502, 9.9504788)
     private var baseDisplayRule: WeakReference<MPDisplayRule?>? = null
     private var robotDisplayRule: MPDisplayRule? = null
     private var mLocations: ArrayList<MPLocation>? = null
