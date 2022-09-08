@@ -5,8 +5,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.mapsindoors.coresdk.MPLocation
-import com.mapsindoors.coresdk.MapsIndoors
+import com.mapsindoors.core.MPLocation
 
 
 internal class SearchItemAdapter(private val mLocations: List<MPLocation?>, private val mMapActivity: MapsActivity?) : RecyclerView.Adapter<ViewHolder>() {

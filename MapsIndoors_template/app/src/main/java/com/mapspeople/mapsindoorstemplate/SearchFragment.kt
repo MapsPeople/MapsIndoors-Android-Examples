@@ -15,12 +15,11 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.progressindicator.LinearProgressIndicator
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import com.mapsindoors.coresdk.*
+import com.mapsindoors.core.*
 
 
 /**

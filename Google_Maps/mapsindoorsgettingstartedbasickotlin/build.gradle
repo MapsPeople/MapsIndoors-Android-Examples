@@ -38,7 +38,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'com.google.android.gms:play-services-maps:17.0.0'
     implementation 'com.google.code.gson:gson:2.8.6'
-    implementation 'com.mapspeople.mapsindoors:googlemapssdk:4.0.0-beta.10'
+    implementation 'com.mapspeople.mapsindoors:googlemaps:4.0.0-beta.17'
     implementation 'com.squareup.okhttp3:okhttp:4.9.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.+'

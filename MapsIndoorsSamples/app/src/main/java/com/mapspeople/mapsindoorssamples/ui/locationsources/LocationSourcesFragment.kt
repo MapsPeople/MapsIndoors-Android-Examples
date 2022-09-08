@@ -10,17 +10,16 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.mapsindoors.coresdk.*
-import com.mapsindoors.coresdk.errors.MIError
-import com.mapsindoors.coresdk.models.MPLatLng
-import com.mapsindoors.googlemapssdk.MPMapConfig
-import com.mapsindoors.googlemapssdk.converters.LatLngBoundsConverter
+import com.mapsindoors.core.*
+import com.mapsindoors.core.errors.MIError
+import com.mapsindoors.core.models.MPLatLng
+import com.mapsindoors.googlemaps.MPMapConfig
+import com.mapsindoors.googlemaps.converters.LatLngBoundsConverter
 import com.mapspeople.mapsindoorssamples.R
 import com.mapspeople.mapsindoorssamples.databinding.FragmentLocationSourcesBinding
 import java.lang.ref.WeakReference
 import java.util.*
 import kotlin.collections.ArrayList
-import kotlin.collections.HashMap
 import kotlin.random.Random.Default.nextInt
 
 
@@ -43,7 +42,7 @@ class LocationSourcesFragment : Fragment(), OnMapReadyCallback {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentLocationSourcesBinding.inflate(inflater, container, false)
-        MapsIndoors.load(requireActivity().applicationContext, "mapspeople") { error ->
+        MapsIndoors.load(requireActivity().applicationContext, "57e4e4992e74800ef8b69718") { error ->
             if (error == null) {
                 baseDisplayRule = WeakReference(MapsIndoors.getMainDisplayRule())
                 setupLocationSource()

@@ -11,9 +11,10 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.mapsindoors.coresdk.MPLocation;
+import com.mapsindoors.core.MPLocation;
 
 import java.util.List;
+
 
 public class SearchFragment extends Fragment {
 

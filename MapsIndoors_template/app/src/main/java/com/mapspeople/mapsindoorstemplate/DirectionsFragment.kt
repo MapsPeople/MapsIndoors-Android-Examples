@@ -10,7 +10,7 @@ import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.tabs.TabLayoutMediator
-import com.mapsindoors.coresdk.*
+import com.mapsindoors.core.*
 import com.mapspeople.mapsindoorstemplate.databinding.FragmentDirectionsBinding
 
 class DirectionsFragment : Fragment() {
@@ -39,7 +39,7 @@ class DirectionsFragment : Fragment() {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 mMapsFragment?.getDirectionsRenderer()?.selectLegIndex(position)
-                mMapsFragment?.getDirectionsRenderer()?.selectedLegFloorLevel
+                mMapsFragment?.getDirectionsRenderer()?.selectedLegFloorIndex
             }
         })
 

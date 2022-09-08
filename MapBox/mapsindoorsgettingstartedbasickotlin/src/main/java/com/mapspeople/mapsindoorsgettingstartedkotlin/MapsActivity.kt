@@ -17,12 +17,10 @@ import com.google.android.material.textfield.TextInputEditText
 import com.mapbox.maps.MapView
 import com.mapbox.maps.MapboxMap
 import com.mapbox.maps.plugin.animation.flyTo
-import com.mapsindoors.coresdk.*
-import com.mapsindoors.coresdk.errors.MIError
-import com.mapsindoors.livesdk.LiveDataDomainTypes
-import com.mapsindoors.mapboxsdk.MPMapConfig
-import com.mapsindoors.mapboxsdk.converters.CoordinateBoundsConverter
-
+import com.mapsindoors.core.MPDirectionsRenderer
+import com.mapsindoors.core.MPDirectionsService
+import com.mapsindoors.core.MPPoint
+import com.mapsindoors.core.MapControl
 
 class MapsActivity : AppCompatActivity() {
 

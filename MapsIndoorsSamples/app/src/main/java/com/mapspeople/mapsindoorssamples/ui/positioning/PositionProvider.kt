@@ -1,8 +1,8 @@
 package com.mapspeople.mapsindoorssamples.ui.positioning
 
-import com.mapsindoors.coresdk.*
-import com.mapsindoors.coresdk.models.MPLatLng
-import com.mapsindoors.coresdk.models.MPLatLngBounds
+import com.mapsindoors.core.*
+import com.mapsindoors.core.models.MPLatLng
+import com.mapsindoors.core.models.MPLatLngBounds
 import kotlin.random.Random
 
 class PositionProvider : MPPositionProvider {

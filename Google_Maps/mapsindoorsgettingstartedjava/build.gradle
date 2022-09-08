@@ -44,5 +44,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
     implementation 'com.google.code.gson:gson:2.8.6'
-    implementation 'com.mapspeople.mapsindoors:googlemapssdk:4.0.0-beta.10'
+    implementation 'com.mapspeople.mapsindoors:googlemaps:4.0.0-beta.17'
 }

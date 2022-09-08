@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.annotation.Nullable
 import androidx.fragment.app.Fragment
-import com.mapsindoors.coresdk.MPRouteLeg
+import com.mapsindoors.core.MPRouteLeg
 
 class RouteLegFragment : Fragment() {
     private var mRouteLeg: MPRouteLeg? = null

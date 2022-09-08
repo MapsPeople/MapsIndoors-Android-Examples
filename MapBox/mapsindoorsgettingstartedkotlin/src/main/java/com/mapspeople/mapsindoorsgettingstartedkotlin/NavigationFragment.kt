@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
-import com.mapsindoors.coresdk.MPRoute
+import com.mapsindoors.core.MPRoute
 import java.util.concurrent.TimeUnit
 
 class NavigationFragment : Fragment() {
@@ -36,7 +36,7 @@ class NavigationFragment : Fragment() {
                 //When a page is selected call the renderer with the index
                 mMapsActivity?.getMpDirectionsRenderer()?.selectLegIndex(position)
                 //Update the floor on mapcontrol if the floor might have changed for the routing
-                mMapsActivity?.getMpDirectionsRenderer()?.selectedLegFloorLevel?.let {floorIndex ->
+                mMapsActivity?.getMpDirectionsRenderer()?.selectedLegFloorIndex?.let {floorIndex ->
                     mMapsActivity?.getMapControl()?.selectFloor(floorIndex)
                 }
             }

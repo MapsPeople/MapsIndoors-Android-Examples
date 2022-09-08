@@ -12,7 +12,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import androidx.viewpager2.widget.ViewPager2
 import androidx.viewpager2.widget.ViewPager2.OnPageChangeCallback
-import com.mapsindoors.coresdk.MPRoute
+import com.mapsindoors.core.MPRoute
 import java.util.concurrent.TimeUnit
 
 class NavigationFragment : Fragment() {

@@ -7,23 +7,18 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.FrameLayout
 import android.widget.ImageButton
-import androidx.annotation.Nullable
-import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
-import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.bottomsheet.BottomSheetBehavior.BottomSheetCallback
 import com.google.android.material.textfield.TextInputEditText
-import com.mapsindoors.coresdk.*
-import com.mapsindoors.coresdk.errors.MIError
-import com.mapsindoors.googlemapssdk.MPMapConfig
-import com.mapsindoors.googlemapssdk.converters.LatLngBoundsConverter
-import com.mapsindoors.livesdk.LiveDataDomainTypes
-
+import com.mapsindoors.core.MPDirectionsRenderer
+import com.mapsindoors.core.MPDirectionsService
+import com.mapsindoors.core.MPPoint
+import com.mapsindoors.core.MapControl
 
 class MapsActivity : AppCompatActivity(), OnMapReadyCallback {
 

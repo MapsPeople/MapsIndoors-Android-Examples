@@ -19,25 +19,25 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.mapbox.maps.EdgeInsets;
 import com.mapbox.maps.MapView;
 import com.mapbox.maps.MapboxMap;
+import com.mapbox.maps.Style;
 import com.mapbox.maps.plugin.animation.CameraAnimationsUtils;
-import com.mapsindoors.coresdk.MPDirectionsRenderer;
-import com.mapsindoors.coresdk.MPDirectionsService;
-import com.mapsindoors.coresdk.MPFilter;
-import com.mapsindoors.coresdk.MPFilterBehavior;
-import com.mapsindoors.coresdk.MPLocation;
-import com.mapsindoors.coresdk.MPPoint;
-import com.mapsindoors.coresdk.MPQuery;
-import com.mapsindoors.coresdk.MPRoute;
-import com.mapsindoors.coresdk.MPTravelMode;
-import com.mapsindoors.coresdk.MPVenue;
-import com.mapsindoors.coresdk.MapControl;
-import com.mapsindoors.coresdk.MapsIndoors;
-import com.mapsindoors.coresdk.OnRouteResultListener;
-import com.mapsindoors.coresdk.errors.MIError;
-import com.mapsindoors.livesdk.LiveDataDomainTypes;
-import com.mapsindoors.mapboxsdk.MPMapConfig;
-import com.mapsindoors.mapboxsdk.converters.CoordinateBoundsConverter;
-
+import com.mapsindoors.core.MPDirectionsRenderer;
+import com.mapsindoors.core.MPDirectionsService;
+import com.mapsindoors.core.MPFilter;
+import com.mapsindoors.core.MPFilterBehavior;
+import com.mapsindoors.core.MPLocation;
+import com.mapsindoors.core.MPPoint;
+import com.mapsindoors.core.MPQuery;
+import com.mapsindoors.core.MPRoute;
+import com.mapsindoors.core.MPTravelMode;
+import com.mapsindoors.core.MPVenue;
+import com.mapsindoors.core.MapControl;
+import com.mapsindoors.core.MapsIndoors;
+import com.mapsindoors.core.OnRouteResultListener;
+import com.mapsindoors.core.errors.MIError;
+import com.mapsindoors.livedata.LiveDataDomainTypes;
+import com.mapsindoors.mapbox.MPMapConfig;
+import com.mapsindoors.mapbox.converters.CoordinateBoundsConverter;
 
 public class MapsActivity extends AppCompatActivity implements OnRouteResultListener {
 
@@ -60,6 +60,7 @@ public class MapsActivity extends AppCompatActivity implements OnRouteResultList
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         mMapView = findViewById(R.id.mapView);
         mMapboxMap = mMapView.getMapboxMap();
+        mMapboxMap.loadStyleUri(Style.MAPBOX_STREETS);
 
         //Initialize MapsIndoors and set the google api Key
         MapsIndoors.load(getApplicationContext(), "d876ff0e60bb430b8fabb145", null);
@@ -146,7 +147,7 @@ public class MapsActivity extends AppCompatActivity implements OnRouteResultList
             enableLiveData();
             if (miError == null) {
                 //No errors so getting the first venue (in the white house solution the only one)
-                MPVenue venue = MapsIndoors.getVenues().getCurrentVenue();
+                MPVenue venue = MapsIndoors.getVenues().getDefaultVenue();
                 runOnUiThread( ()-> {
                     if (venue != null) {
                         //Animates the camera to fit the new venue

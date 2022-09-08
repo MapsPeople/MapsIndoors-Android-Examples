@@ -1,10 +1,10 @@
 package com.mapspeople.mapsindoorssamples.ui.locationsources
 
 import android.util.Log
-import com.mapsindoors.coresdk.MPLocation
-import com.mapsindoors.coresdk.MPLocationSource
-import com.mapsindoors.coresdk.MPLocationSourceStatus
-import com.mapsindoors.coresdk.MPLocationsObserver
+import com.mapsindoors.core.MPLocation
+import com.mapsindoors.core.MPLocationSource
+import com.mapsindoors.core.MPLocationSourceStatus
+import com.mapsindoors.core.MPLocationsObserver
 
 class RobotVacuumLocationSource(private val robots: ArrayList<MPLocation>): MPLocationSource {
     private val mObservers = ArrayList<MPLocationsObserver>()

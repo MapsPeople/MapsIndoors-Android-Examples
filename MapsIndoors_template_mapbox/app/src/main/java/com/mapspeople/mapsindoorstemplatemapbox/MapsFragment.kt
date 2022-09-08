@@ -20,10 +20,10 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.mapbox.maps.MapView
 import com.mapbox.maps.MapboxMap
-import com.mapsindoors.coresdk.*
-import com.mapsindoors.coresdk.errors.MIError
-import com.mapsindoors.mapboxsdk.MPMapConfig
-import com.mapsindoors.mapboxsdk.converters.CoordinateBoundsConverter
+import com.mapsindoors.core.*
+import com.mapsindoors.core.errors.MIError
+import com.mapsindoors.mapbox.MPMapConfig
+import com.mapsindoors.mapbox.converters.CoordinateBoundsConverter
 import com.mapspeople.mapsindoorstemplatemapbox.databinding.FragmentMapBinding
 import kotlin.collections.ArrayList
 
@@ -71,7 +71,7 @@ class MapsFragment : Fragment(), OnRouteResultListener {
 
         val userRoleStrings = arguments?.getStringArrayList("userroles")
         val userRoles = ArrayList<MPUserRole>()
-        MapsIndoors.getUserRoles().forEach {
+        MapsIndoors.getUserRoles()?.userRoles?.forEach {
             if (userRoleStrings?.contains(it.value) == true) {
                 userRoles.add(it)
             }

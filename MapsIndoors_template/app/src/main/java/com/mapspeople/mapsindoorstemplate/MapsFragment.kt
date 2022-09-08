@@ -24,10 +24,10 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.mapsindoors.coresdk.*
-import com.mapsindoors.coresdk.errors.MIError
-import com.mapsindoors.googlemapssdk.MPMapConfig
-import com.mapsindoors.googlemapssdk.converters.LatLngBoundsConverter
+import com.mapsindoors.core.*
+import com.mapsindoors.core.errors.MIError
+import com.mapsindoors.googlemaps.MPMapConfig
+import com.mapsindoors.googlemaps.converters.LatLngBoundsConverter
 import com.mapspeople.mapsindoorstemplate.databinding.FragmentMapBinding
 import kotlin.collections.ArrayList
 
@@ -77,7 +77,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback, OnRouteResultListener {
 
         val userRoleStrings = arguments?.getStringArrayList("userroles")
         val userRoles = ArrayList<MPUserRole>()
-        MapsIndoors.getUserRoles().forEach {
+        MapsIndoors.getUserRoles()?.userRoles?.forEach {
             if (userRoleStrings?.contains(it.value) == true) {
                 userRoles.add(it)
             }

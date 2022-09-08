@@ -9,12 +9,12 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.mapsindoors.coresdk.MPLocation
-import com.mapsindoors.coresdk.MapControl
-import com.mapsindoors.coresdk.MapsIndoors
-import com.mapsindoors.coresdk.errors.MIError
-import com.mapsindoors.googlemapssdk.MPMapConfig
-import com.mapsindoors.googlemapssdk.converters.LatLngBoundsConverter.toLatLngBounds
+import com.mapsindoors.core.MPLocation
+import com.mapsindoors.core.MapControl
+import com.mapsindoors.core.MapsIndoors
+import com.mapsindoors.core.errors.MIError
+import com.mapsindoors.googlemaps.MPMapConfig
+import com.mapsindoors.googlemaps.converters.LatLngBoundsConverter.toLatLngBounds
 import com.mapspeople.mapsindoorssamples.R
 import com.mapspeople.mapsindoorssamples.databinding.FragmentLocationDetailsBinding
 
@@ -31,7 +31,7 @@ class LocationDetailsFragment : Fragment(), OnMapReadyCallback {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentLocationDetailsBinding.inflate(inflater, container, false)
 
-        MapsIndoors.load(requireActivity().applicationContext, "gettingstarted", null)
+        MapsIndoors.load(requireActivity().applicationContext, "57e4e4992e74800ef8b69718", null)
 
         val root: View = binding.root
         val supportMapFragment = childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment

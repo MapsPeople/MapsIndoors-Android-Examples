@@ -8,37 +8,37 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="com.mapspeople.mapsindoorssamples.ui.locationsources.LocationSourcesFragment"
-        android:label="@string/menu_home"
+        android:label="Location sources"
         tools:layout="@layout/fragment_location_sources" />
 
     <fragment
         android:id="@+id/nav_gallery"
         android:name="com.mapspeople.mapsindoorssamples.ui.locationdetails.LocationDetailsFragment"
-        android:label="@string/menu_gallery"
+        android:label="Location details"
         tools:layout="@layout/fragment_location_details" />
 
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.mapspeople.mapsindoorssamples.ui.locationclustering.LocationClusteringFragment"
-        android:label="@string/menu_slideshow"
+        android:label="Clustering"
         tools:layout="@layout/fragment_location_clustering" />
 
     <fragment
         android:id="@+id/nav_livedata"
         android:name="com.mapspeople.mapsindoorssamples.ui.livedata.LivedataFragment"
-        android:label="@string/menu_slideshow"
+        android:label="Live data"
         tools:layout="@layout/fragment_livedata" />
 
     <fragment
         android:id="@+id/nav_wayfinding"
         android:name="com.mapspeople.mapsindoorssamples.ui.wayfinding.WayfindingFragment"
-        android:label="@string/menu_slideshow"
+        android:label="Wayfinding"
         tools:layout="@layout/fragment_wayfinding" />
 
     <fragment
         android:id="@+id/nav_search"
         android:name="com.mapspeople.mapsindoorssamples.ui.search.SearchFragment"
-        android:label="@string/menu_slideshow"
+        android:label="Search"
         tools:layout="@layout/fragment_search" >
         <action
             android:id="@+id/action_nav_search_to_nav_search_fullscreen"
@@ -58,6 +58,6 @@
     <fragment
         android:id="@+id/nav_positioning"
         android:name="com.mapspeople.mapsindoorssamples.ui.positioning.PositioningFragment"
-        android:label="@string/menu_slideshow"
+        android:label="Positioning"
         tools:layout="@layout/fragment_positioning" />
 </navigation>
