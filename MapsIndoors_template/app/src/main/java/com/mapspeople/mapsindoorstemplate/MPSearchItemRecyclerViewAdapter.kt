@@ -8,9 +8,9 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
-import com.mapsindoors.coresdk.MPLocation
-import com.mapsindoors.coresdk.MapsIndoors
-import com.mapsindoors.coresdk.OnLocationSelectedListener
+import com.mapsindoors.core.MPLocation
+import com.mapsindoors.core.MapsIndoors
+import com.mapsindoors.core.OnLocationSelectedListener
 
 import com.mapspeople.mapsindoorstemplate.databinding.FragmentSearchItemBinding
 

@@ -14,7 +14,10 @@ import android.view.inputmethod.InputMethodManager
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.mapsindoors.coresdk.*
+import com.mapsindoors.core.MPFilter
+import com.mapsindoors.core.MPLocation
+import com.mapsindoors.core.MPQuery
+import com.mapsindoors.core.MapsIndoors
 import com.mapspeople.mapsindoorstemplate.databinding.FragmentRoutingBinding
 
 class RoutingFragment : Fragment(), TextWatcher {

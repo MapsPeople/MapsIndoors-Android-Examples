@@ -14,8 +14,8 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.mapsindoors.coresdk.MPLocation
-import com.mapsindoors.coresdk.MapsIndoors
+import com.mapsindoors.core.MPLocation
+import com.mapsindoors.core.MapsIndoors
 import com.mapspeople.mapsindoorstemplate.databinding.FragmentDescriptionBinding
 
 

@@ -11,10 +11,10 @@ import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.mapsindoors.coresdk.*
-import com.mapsindoors.coresdk.errors.MIError
-import com.mapsindoors.googlemapssdk.MPMapConfig
-import com.mapsindoors.googlemapssdk.converters.LatLngBoundsConverter
+import com.mapsindoors.core.*
+import com.mapsindoors.core.errors.MIError
+import com.mapsindoors.googlemaps.MPMapConfig
+import com.mapsindoors.googlemaps.converters.LatLngBoundsConverter
 import com.mapspeople.mapsindoorssamples.R
 import com.mapspeople.mapsindoorssamples.databinding.FragmentWayfindingBinding
 
@@ -45,7 +45,7 @@ class WayfindingFragment : Fragment(), OnMapReadyCallback {
             override fun onPageSelected(position: Int) {
                 super.onPageSelected(position)
                 mDirectionsRenderer?.selectLegIndex(position)
-                mDirectionsRenderer?.selectedLegFloorLevel
+                mDirectionsRenderer?.selectedLegFloorIndex
             }
         })
 

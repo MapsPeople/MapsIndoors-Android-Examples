@@ -19,7 +19,7 @@ import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.progressindicator.LinearProgressIndicator
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
-import com.mapsindoors.coresdk.*
+import com.mapsindoors.core.*
 
 
 /**

@@ -5,8 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
-import com.mapsindoors.coresdk.MPDebugLog
-import com.mapsindoors.coresdk.MapsIndoors
+import com.mapsindoors.core.MapsIndoors
 import com.mapspeople.mapsindoorstemplate.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

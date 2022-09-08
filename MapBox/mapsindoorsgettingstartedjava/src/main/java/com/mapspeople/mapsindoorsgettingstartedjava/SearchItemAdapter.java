@@ -8,9 +8,9 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.mapsindoors.coresdk.MPDisplayRule;
-import com.mapsindoors.coresdk.MPLocation;
-import com.mapsindoors.coresdk.MapsIndoors;
+import com.mapsindoors.core.MPDisplayRule;
+import com.mapsindoors.core.MPLocation;
+import com.mapsindoors.core.MapsIndoors;
 
 import java.util.List;
 
@@ -45,7 +45,7 @@ class SearchItemAdapter extends RecyclerView.Adapter<ViewHolder> {
             MPDisplayRule locationDisplayRule = MapsIndoors.getDisplayRule(mLocations.get(position));
 
             if (locationDisplayRule != null) {
-                locationDisplayRule.getIconAsync(bitmap -> {
+                locationDisplayRule.getIconAsync((bitmap, error) -> {
                     mMapActivity.runOnUiThread(()-> {
                         holder.imageView.setImageBitmap(bitmap);
                     });

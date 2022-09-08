@@ -17,12 +17,11 @@ import com.google.android.material.textfield.TextInputEditText
 import com.mapbox.maps.MapView
 import com.mapbox.maps.MapboxMap
 import com.mapbox.maps.plugin.animation.flyTo
-import com.mapsindoors.coresdk.*
-import com.mapsindoors.coresdk.errors.MIError
-import com.mapsindoors.livesdk.LiveDataDomainTypes
-import com.mapsindoors.mapboxsdk.MPMapConfig
-import com.mapsindoors.mapboxsdk.converters.CoordinateBoundsConverter
-
+import com.mapsindoors.core.*
+import com.mapsindoors.core.errors.MIError
+import com.mapsindoors.livedata.LiveDataDomainTypes
+import com.mapsindoors.mapbox.MPMapConfig
+import com.mapsindoors.mapbox.converters.CoordinateBoundsConverter
 
 class MapsActivity : AppCompatActivity(), OnRouteResultListener {
 
@@ -108,7 +107,7 @@ class MapsActivity : AppCompatActivity(), OnRouteResultListener {
                 //Enable live data on the map
                 enableLiveData()
                 //No errors so getting the first venue (in the white house solution the only one)
-                val venue = MapsIndoors.getVenues()?.currentVenue
+                val venue = MapsIndoors.getVenues()?.defaultVenue
                 venue?.bounds?.let {
                     runOnUiThread {
                         //Animates the camera to fit the new venue

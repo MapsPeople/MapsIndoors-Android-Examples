@@ -10,17 +10,14 @@ import android.view.ViewGroup
 import android.view.WindowManager
 import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
-import androidx.core.content.ContextCompat.getSystemService
-import androidx.core.content.getSystemService
 import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
-import com.mapsindoors.coresdk.MPQuery
-import com.mapsindoors.coresdk.MapsIndoors
+import com.mapsindoors.core.MPQuery
+import com.mapsindoors.core.MapsIndoors
 import com.mapspeople.mapsindoorssamples.R
 import com.mapspeople.mapsindoorssamples.databinding.FragmentFullscreenSearchBinding
 

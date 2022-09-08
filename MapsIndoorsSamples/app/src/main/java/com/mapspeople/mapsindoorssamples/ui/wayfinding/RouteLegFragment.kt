@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.mapspeople.mapsindoorssamples.R
 import com.mapspeople.mapsindoorssamples.databinding.FragmentRouteLegBinding
 import java.util.*
 import java.util.concurrent.TimeUnit

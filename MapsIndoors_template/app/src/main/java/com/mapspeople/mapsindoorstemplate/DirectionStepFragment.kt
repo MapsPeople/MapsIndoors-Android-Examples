@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
-import com.mapsindoors.coresdk.MPHighway
+import com.mapsindoors.core.MPHighway
 import com.mapspeople.mapsindoorstemplate.databinding.FragmentDirectionStepBinding
 import java.util.*
 import java.util.concurrent.TimeUnit
@@ -23,10 +23,10 @@ class DirectionStepFragment : Fragment() {
         R.drawable.ic_vec_sig_escalator,
         R.drawable.ic_vec_sig_stairs,
         R.drawable.ic_vec_sig_stairs,
-        R.drawable.misdk_ic_ramp,
-        R.drawable.misdk_ic_wheelchairlift,
-        R.drawable.misdk_ic_wheelchairramp,
-        R.drawable.misdk_ic_ladder
+        com.mapsindoors.core.R.drawable.misdk_ic_ramp,
+        com.mapsindoors.core.R.drawable.misdk_ic_wheelchairlift,
+        com.mapsindoors.core.R.drawable.misdk_ic_wheelchairramp,
+        com.mapsindoors.core.R.drawable.misdk_ic_ladder
     )
 
     private var _binding: FragmentDirectionStepBinding? = null

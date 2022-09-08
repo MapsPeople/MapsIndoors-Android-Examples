@@ -10,8 +10,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.mapsindoors.coresdk.MPRouteLeg;
-import com.mapsindoors.coresdk.MPRouteStep;
+import com.mapsindoors.core.MPRouteLeg;
+
 
 /**
  * A simple {@link Fragment} subclass.

@@ -5,15 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.FragmentManager
 import androidx.navigation.fragment.findNavController
 import com.google.android.gms.maps.*
-import com.mapsindoors.coresdk.MPSelectionBehavior
-import com.mapsindoors.coresdk.MapControl
-import com.mapsindoors.coresdk.MapsIndoors
-import com.mapsindoors.coresdk.errors.MIError
-import com.mapsindoors.googlemapssdk.MPMapConfig
-import com.mapsindoors.googlemapssdk.converters.LatLngBoundsConverter
+import com.mapsindoors.core.MPSelectionBehavior
+import com.mapsindoors.core.MapControl
+import com.mapsindoors.core.MapsIndoors
+import com.mapsindoors.core.errors.MIError
+import com.mapsindoors.googlemaps.MPMapConfig
+import com.mapsindoors.googlemaps.converters.LatLngBoundsConverter
 import com.mapspeople.mapsindoorssamples.R
 import com.mapspeople.mapsindoorssamples.databinding.FragmentSearchBinding
 

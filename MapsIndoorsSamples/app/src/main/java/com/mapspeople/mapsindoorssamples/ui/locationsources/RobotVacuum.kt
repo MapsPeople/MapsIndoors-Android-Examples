@@ -1,6 +1,6 @@
 package com.mapspeople.mapsindoorssamples.ui.locationsources
 
-import com.mapsindoors.coresdk.models.MPLatLng
+import com.mapsindoors.core.models.MPLatLng
 
 class RobotVacuum (private var mBatteryCharge: Int?, private var mPosition: MPLatLng?){
     fun setPosition(position: MPLatLng?) {

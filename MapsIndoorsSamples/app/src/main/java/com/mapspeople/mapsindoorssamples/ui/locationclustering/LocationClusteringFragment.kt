@@ -12,11 +12,14 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
-import com.mapsindoors.coresdk.*
-import com.mapsindoors.coresdk.errors.MIError
-import com.mapsindoors.coresdk.models.MPLatLng
-import com.mapsindoors.googlemapssdk.MPMapConfig
-import com.mapsindoors.googlemapssdk.converters.LatLngBoundsConverter
+import com.mapsindoors.core.MPGeometry
+import com.mapsindoors.core.MPPolygonGeometry
+import com.mapsindoors.core.MapControl
+import com.mapsindoors.core.MapsIndoors
+import com.mapsindoors.core.errors.MIError
+import com.mapsindoors.core.models.MPLatLng
+import com.mapsindoors.googlemaps.MPMapConfig
+import com.mapsindoors.googlemaps.converters.LatLngBoundsConverter
 import com.mapspeople.mapsindoorssamples.R
 import com.mapspeople.mapsindoorssamples.databinding.FragmentLocationClusteringBinding
 
@@ -34,42 +37,12 @@ class LocationClusteringFragment : Fragment(), OnMapReadyCallback {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentLocationClusteringBinding.inflate(inflater, container, false)
-        MapsIndoors.load(requireActivity().applicationContext, "mapspeople") {
+        MapsIndoors.load(requireActivity().applicationContext, "gettingstarted") {
             if (it == null) {
-                //clusteringEnabled = MapsIndoors.getSolution()?.config?.enableClustering!!
-            }
-        }
-
-        var location = MapsIndoors.getLocationById("blabla")!!
-        val geometry: MPGeometry = location.geometry
-        when (geometry.iType) {
-            MPGeometry.TYPE_POINT -> {
-                val point = geometry
-            }
-            MPGeometry.TYPE_POLYGON -> {
-                val polygon: MPPolygonGeometry = geometry as MPPolygonGeometry
-
-                // Using GMS helper classes
-                // Get all the paths in the polygon
-                val paths: List<List<MPLatLng>> = polygon.gmsPath
-                val pathCount = paths.size
-
-                // Outer ring (first)
-                val path = paths[0]
-                for (coordinate in path) {
-                    val lat = coordinate.lat
-                    val lng = coordinate.lng
-                }
-
-                // Optional: Inner rings (holes)
-                var i = 1
-                while (i < pathCount) {
-                    val hole = paths[i]
-                    for (coordinate in hole) {
-                        val lat = coordinate.lat
-                        val lng = coordinate.lng
-                    }
-                    i++
+                clusteringEnabled = if (MapsIndoors.getSolution()?.config?.enableClustering != null) {
+                    MapsIndoors.getSolution()?.config?.enableClustering!!
+                } else {
+                    false
                 }
             }
         }

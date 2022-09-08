@@ -10,14 +10,14 @@ import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
-import com.mapsindoors.coresdk.MapControl
-import com.mapsindoors.coresdk.MapsIndoors
-import com.mapsindoors.coresdk.errors.MIError
-import com.mapsindoors.googlemapssdk.MPMapConfig
-import com.mapsindoors.googlemapssdk.converters.LatLngBoundsConverter
-import com.mapsindoors.livesdk.LiveDataDomainTypes
-import com.mapsindoors.livesdk.LiveDataManager
-import com.mapsindoors.livesdk.LiveTopicCriteria
+import com.mapsindoors.core.MapControl
+import com.mapsindoors.core.MapsIndoors
+import com.mapsindoors.core.errors.MIError
+import com.mapsindoors.googlemaps.MPMapConfig
+import com.mapsindoors.googlemaps.converters.LatLngBoundsConverter
+import com.mapsindoors.livedata.LiveDataDomainTypes
+import com.mapsindoors.livedata.LiveDataManager
+import com.mapsindoors.livedata.LiveTopicCriteria
 import com.mapspeople.mapsindoorssamples.R
 import com.mapspeople.mapsindoorssamples.databinding.FragmentLivedataBinding
 

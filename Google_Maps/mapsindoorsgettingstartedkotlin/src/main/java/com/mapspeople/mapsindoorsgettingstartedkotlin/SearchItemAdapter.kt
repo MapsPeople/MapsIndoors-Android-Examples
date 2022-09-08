@@ -5,8 +5,8 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.mapsindoors.coresdk.MPLocation
-import com.mapsindoors.coresdk.MapsIndoors
+import com.mapsindoors.core.MPLocation
+import com.mapsindoors.core.MapsIndoors
 
 
 internal class SearchItemAdapter(private val mLocations: List<MPLocation?>, private val mMapActivity: MapsActivity?) : RecyclerView.Adapter<ViewHolder>() {
@@ -23,9 +23,9 @@ internal class SearchItemAdapter(private val mLocations: List<MPLocation?>, priv
             mMapActivity?.getMapControl()?.clearFilter()
         }
         if (mMapActivity != null) {
-            mLocations[position]?.let { MapsIndoors.getDisplayRule(it) }?.getIconAsync {
+            mLocations[position]?.let { MapsIndoors.getDisplayRule(it) }?.getIconAsync { bitmap, error ->
                 mMapActivity.runOnUiThread {
-                    holder.imageView.setImageBitmap(it)
+                    holder.imageView.setImageBitmap(bitmap)
                 }
             }
         }
