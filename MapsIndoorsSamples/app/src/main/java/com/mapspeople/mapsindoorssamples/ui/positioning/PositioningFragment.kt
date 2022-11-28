@@ -76,6 +76,10 @@ class PositioningFragment : Fragment(), OnMapReadyCallback {
         return root
     }
 
+    fun startPosition() {
+        mPositionProvider?.start()
+    }
+
     override fun onMapReady(map: GoogleMap) {
         mMap = map
         if (mMapView != null) {

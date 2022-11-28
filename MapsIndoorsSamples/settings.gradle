@@ -14,6 +14,9 @@ dependencyResolutionManagement {
         maven {
             url 'https://maven.mapsindoors.com/'
         }
+        maven {
+            url "https://dl.cloudsmith.io/public/indooratlas/mvn-public/maven/"
+        }
         google()
         mavenCentral()
     }
