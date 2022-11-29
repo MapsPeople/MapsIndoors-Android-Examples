@@ -5,6 +5,7 @@ import android.util.Log
 import com.google.gson.Gson
 import com.google.gson.JsonObject
 import com.mapsindoors.core.*
+import com.mapsindoors.livedata.CiscoDNAEntry
 import com.mapsindoors.livedata.CiscoDNATopic
 import com.mapsindoors.livedata.LiveDataManager
 import com.mapsindoors.livedata.MPLiveTopic
