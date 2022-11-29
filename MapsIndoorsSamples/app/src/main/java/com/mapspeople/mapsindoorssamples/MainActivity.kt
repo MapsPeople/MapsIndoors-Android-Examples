@@ -11,7 +11,9 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.findFragment
 import com.mapspeople.mapsindoorssamples.databinding.ActivityMainBinding
+import com.mapspeople.mapsindoorssamples.ui.positioning.PositioningFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -44,6 +46,17 @@ class MainActivity : AppCompatActivity() {
         // Inflate the menu; this adds items to the action bar if it is present.
         menuInflater.inflate(R.menu.main, menu)
         return true
+    }
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults)
+        if (requestCode == 1 && grantResults.size >= 2) {
+            val hostFragment = supportFragmentManager.findFragmentById(R.id.nav_host_fragment_content_main)
+            val currFragment = hostFragment?.childFragmentManager?.fragments?.get(0)
+            if (currFragment  is PositioningFragment) {
+                currFragment.startPosition()
+            }
+        }
     }
 
     override fun onSupportNavigateUp(): Boolean {
