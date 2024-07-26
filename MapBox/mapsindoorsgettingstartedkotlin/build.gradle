@@ -4,25 +4,16 @@ plugins {
 }
 
 android {
-    signingConfigs {
-        release {
-        storeFile file('/Users/timmikkelsen/Downloads/aau.jks')
-            storePassword 'utXc45ops'
-            keyAlias 'KeyStore'
-            keyPassword 'utXc45ops'
-        }
-    }
-    compileSdk 32
+    compileSdk 34
 
     defaultConfig {
         applicationId "com.mapspeople.mapsindoorsgettingstartedkotlin"
         minSdk 21
-        targetSdk 32
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-        signingConfig signingConfigs.release
     }
 
     buildTypes {
@@ -52,8 +43,8 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    implementation 'com.mapspeople.mapsindoors:mapbox:4.0.0'
-    implementation ('com.mapbox.maps:android:10.6.0'){
+    implementation 'com.mapspeople.mapsindoors:mapbox-v11:4.8.7'
+    implementation ('com.mapbox.maps:android:11.5.0'){
         exclude group: 'group_name', module: 'module_name'
     }
 }
