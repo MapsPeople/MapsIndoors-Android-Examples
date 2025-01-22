@@ -7,7 +7,6 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.FrameLayout
 import android.widget.ImageButton
-import androidx.annotation.Nullable
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -186,7 +185,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, OnRouteResultListe
     fun createRoute(mpLocation: MPLocation) {
         //If MPRoutingProvider has not been instantiated create it here and assign the results call back to the activity.
         if (mpDirectionsService == null) {
-            mpDirectionsService = MPDirectionsService(this)
+            mpDirectionsService = MPDirectionsService()
             mpDirectionsService?.setRouteResultListener(this)
         }
         mpDirectionsService?.setTravelMode(MPTravelMode.WALKING)
@@ -199,7 +198,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, OnRouteResultListe
      * @param route the route model used to render a navigation view.
      * @param miError an MIError if anything goes wrong when generating a route
      */
-    override fun onRouteResult(@Nullable route: MPRoute?, @Nullable miError: MIError?) {
+    override fun onRouteResult(route: MPRoute?, miError: MIError?) {
         //Return if either error is not null or the route is null
         if (miError != null || route == null) {
             //TODO: Tell the user about the route not being able to be created etc.

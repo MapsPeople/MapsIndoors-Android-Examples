@@ -19,7 +19,6 @@ import com.google.android.material.textfield.TextInputEditText;
 import com.mapbox.maps.EdgeInsets;
 import com.mapbox.maps.MapView;
 import com.mapbox.maps.MapboxMap;
-import com.mapbox.maps.Style;
 import com.mapbox.maps.plugin.animation.CameraAnimationsUtils;
 import com.mapsindoors.core.MPDirectionsRenderer;
 import com.mapsindoors.core.MPDirectionsService;
@@ -60,7 +59,6 @@ public class MapsActivity extends AppCompatActivity implements OnRouteResultList
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         mMapView = findViewById(R.id.mapView);
         mMapboxMap = mMapView.getMapboxMap();
-        mMapboxMap.loadStyleUri(Style.MAPBOX_STREETS);
 
         //Initialize MapsIndoors and set the google api Key
         MapsIndoors.load(getApplicationContext(), "d876ff0e60bb430b8fabb145", null);
@@ -151,7 +149,7 @@ public class MapsActivity extends AppCompatActivity implements OnRouteResultList
                 runOnUiThread( ()-> {
                     if (venue != null) {
                         //Animates the camera to fit the new venue
-                        CameraAnimationsUtils.flyTo(mMapboxMap, mMapboxMap.cameraForCoordinateBounds(CoordinateBoundsConverter.toCoordinateBounds(venue.getBounds()), new EdgeInsets(0,0,0,0), null, null));
+                        CameraAnimationsUtils.flyTo(mMapboxMap, mMapboxMap.cameraForCoordinateBounds(CoordinateBoundsConverter.toCoordinateBounds(venue.getBounds()), new EdgeInsets(0,0,0,0), null, null, null, null));
                     }
                 });
             }

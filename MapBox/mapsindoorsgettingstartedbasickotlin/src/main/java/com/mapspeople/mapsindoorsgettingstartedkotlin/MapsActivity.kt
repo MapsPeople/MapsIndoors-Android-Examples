@@ -43,7 +43,7 @@ class MapsActivity : AppCompatActivity() {
         setContentView(R.layout.activity_maps)
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         mapView = findViewById(R.id.mapView)
-        mMap = mapView.getMapboxMap()
+        mMap = mapView.mapboxMap
         //TODO: Instantiate MapsIndoors
 
         mSearchTxtField = findViewById(R.id.search_edit_txt)

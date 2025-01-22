@@ -18,13 +18,12 @@ class NavigationFragment : Fragment() {
     private var mRoute: MPRoute? = null
     private var mMapsActivity: MapsActivity? = null
 
-    @Nullable
-    override fun onCreateView(inflater: LayoutInflater, @Nullable container: ViewGroup?, @Nullable savedInstanceState: Bundle?): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         return inflater.inflate(R.layout.fragment_navigation, container, false)
     }
 
     @SuppressLint("SetTextI18n")
-    override fun onViewCreated(view: View, @Nullable savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val routeCollectionAdapter =
             RouteCollectionAdapter(this)
         val mViewPager: ViewPager2 = view.findViewById(R.id.view_pager)

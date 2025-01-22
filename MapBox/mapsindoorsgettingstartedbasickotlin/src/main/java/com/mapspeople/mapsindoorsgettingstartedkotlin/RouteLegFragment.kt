@@ -18,7 +18,7 @@ class RouteLegFragment : Fragment() {
     }
 
     override fun onViewCreated(
-        view: View, @Nullable savedInstanceState: Bundle?) {
+        view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //Assigning views
         val stepsTxtView = view.findViewById<TextView>(R.id.steps_text_view)

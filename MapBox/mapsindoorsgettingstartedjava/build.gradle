@@ -3,12 +3,14 @@ plugins {
 }
 
 android {
-    compileSdk 32
+    compileSdk 34
+
+    namespace = "com.mapspeople.mapsindoorsgettingstartedjava"
 
     defaultConfig {
         applicationId "com.mapspeople.mapsindoorsgettingstartedjava"
         minSdk 21
-        targetSdk 32
+        targetSdk 34
         versionCode 1
         versionName "1.0"
 
@@ -40,8 +42,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    implementation 'com.mapspeople.mapsindoors:mapbox:4.0.0'
-    implementation ('com.mapbox.maps:android:10.7.0'){
-        exclude group: 'group_name', module: 'module_name'
-    }
+    implementation 'com.mapspeople.mapsindoors:mapbox-v11:4.10.0'
+    implementation ('com.mapbox.maps:android:11.9.0')
 }
