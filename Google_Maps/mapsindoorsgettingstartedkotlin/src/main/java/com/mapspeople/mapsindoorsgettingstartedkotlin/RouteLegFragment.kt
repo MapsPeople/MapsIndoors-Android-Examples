@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import androidx.annotation.Nullable
 import androidx.fragment.app.Fragment
 import com.mapsindoors.core.MPRouteLeg
 
@@ -18,7 +17,7 @@ class RouteLegFragment : Fragment() {
     }
 
     override fun onViewCreated(
-        view: View, @Nullable savedInstanceState: Bundle?) {
+        view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         //Assigning views
         val stepsTxtView = view.findViewById<TextView>(R.id.steps_text_view)

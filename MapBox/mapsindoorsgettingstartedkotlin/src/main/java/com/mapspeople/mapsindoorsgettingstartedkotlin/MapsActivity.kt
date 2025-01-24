@@ -7,7 +7,6 @@ import android.view.inputmethod.EditorInfo
 import android.view.inputmethod.InputMethodManager
 import android.widget.FrameLayout
 import android.widget.ImageButton
-import androidx.annotation.Nullable
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
@@ -44,7 +43,7 @@ class MapsActivity : AppCompatActivity(), OnRouteResultListener {
         setContentView(R.layout.activity_maps)
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         mapView = findViewById(R.id.mapView)
-        mMap = mapView.getMapboxMap()
+        mMap = mapView.mapboxMap
         MapsIndoors.load(applicationContext, "d876ff0e60bb430b8fabb145", null)
 
         mSearchTxtField = findViewById(R.id.search_edit_txt)
@@ -65,7 +64,7 @@ class MapsActivity : AppCompatActivity(), OnRouteResultListener {
         }
 
         //ClickListener to start a search, when the user clicks the search button
-        var searchBtn = findViewById<ImageButton>(R.id.search_btn)
+        val searchBtn = findViewById<ImageButton>(R.id.search_btn)
         searchBtn.setOnClickListener {
             if (mSearchTxtField.text?.length != 0) {
                 //There is text inside the search field. So lets do the search.
@@ -75,7 +74,7 @@ class MapsActivity : AppCompatActivity(), OnRouteResultListener {
             imm.hideSoftInputFromWindow(it.windowToken, 0)
         }
 
-        var bottomSheet = findViewById<FrameLayout>(R.id.standardBottomSheet)
+        val bottomSheet = findViewById<FrameLayout>(R.id.standardBottomSheet)
         mBtmnSheetBehavior = BottomSheetBehavior.from(bottomSheet)
         mBtmnSheetBehavior.addBottomSheetCallback(object : BottomSheetCallback() {
             override fun onStateChanged(bottomSheet: View, newState: Int) {
@@ -170,7 +169,7 @@ class MapsActivity : AppCompatActivity(), OnRouteResultListener {
     fun createRoute(mpLocation: MPLocation) {
         //If MPRoutingProvider has not been instantiated create it here and assign the results call back to the activity.
         if (mpRoutingProvider == null) {
-            mpRoutingProvider = MPDirectionsService(this)
+            mpRoutingProvider = MPDirectionsService()
             mpRoutingProvider?.setRouteResultListener(this)
         }
         mpRoutingProvider?.setTravelMode(MPTravelMode.WALKING)
@@ -183,7 +182,7 @@ class MapsActivity : AppCompatActivity(), OnRouteResultListener {
      * @param route the route model used to render a navigation view.
      * @param miError an MIError if anything goes wrong when generating a route
      */
-    override fun onRouteResult(@Nullable route: MPRoute?, @Nullable miError: MIError?) {
+    override fun onRouteResult(route: MPRoute?, miError: MIError?) {
         //Return if either error is not null or the route is null
         if (miError != null || route == null) {
             //TODO: Tell the user about the route not being able to be created etc.

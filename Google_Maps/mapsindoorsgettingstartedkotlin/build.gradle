@@ -6,6 +6,8 @@ plugins {
 android {
     compileSdk 34
 
+    namespace = "com.mapspeople.mapsindoorsgettingstartedkotlin"
+
     defaultConfig {
         applicationId "com.mapspeople.mapsindoorsgettingstartedkotlin"
         minSdk 21
@@ -38,7 +40,7 @@ dependencies {
     implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
     implementation 'com.google.android.gms:play-services-maps:19.0.0'
     implementation 'com.google.code.gson:gson:2.8.6'
-    implementation 'com.mapspeople.mapsindoors:googlemaps:4.8.7'
+    implementation 'com.mapspeople.mapsindoors:googlemaps:4.10.0'
     implementation 'com.squareup.okhttp3:okhttp:4.9.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     testImplementation 'junit:junit:4.+'
