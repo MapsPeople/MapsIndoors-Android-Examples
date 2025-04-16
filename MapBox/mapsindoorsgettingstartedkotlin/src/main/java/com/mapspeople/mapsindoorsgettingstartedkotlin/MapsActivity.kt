@@ -18,7 +18,6 @@ import com.mapbox.maps.MapboxMap
 import com.mapbox.maps.plugin.animation.flyTo
 import com.mapsindoors.core.*
 import com.mapsindoors.core.errors.MIError
-import com.mapsindoors.livedata.LiveDataDomainTypes
 import com.mapsindoors.mapbox.MPMapConfig
 import com.mapsindoors.mapbox.converters.CoordinateBoundsConverter
 
@@ -32,7 +31,6 @@ class MapsActivity : AppCompatActivity(), OnRouteResultListener {
     private lateinit var mBtmnSheetBehavior: BottomSheetBehavior<FrameLayout>
     private lateinit var mSearchTxtField: TextInputEditText
     private var mCurrentFragment: Fragment? = null
-    private val mUserLocation: MPPoint = MPPoint(38.897389429704695, -77.03740973527613, 0.0)
 
     private var mpDirectionsRenderer: MPDirectionsRenderer? = null
     private var mpRoutingProvider: MPDirectionsService? = null
@@ -44,7 +42,7 @@ class MapsActivity : AppCompatActivity(), OnRouteResultListener {
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         mapView = findViewById(R.id.mapView)
         mMap = mapView.mapboxMap
-        MapsIndoors.load(applicationContext, "d876ff0e60bb430b8fabb145", null)
+        MapsIndoors.load(applicationContext, "02c329e6777d431a88480a09", null)
 
         mSearchTxtField = findViewById(R.id.search_edit_txt)
         //Listener for when the user searches through the keyboard
@@ -103,8 +101,6 @@ class MapsActivity : AppCompatActivity(), OnRouteResultListener {
         MapControl.create(config) { mapControl, miError ->
             if (miError == null) {
                 mMapControl = mapControl!!
-                //Enable live data on the map
-                enableLiveData()
                 //No errors so getting the first venue (in the white house solution the only one)
                 val venue = MapsIndoors.getVenues()?.defaultVenue
                 venue?.bounds?.let {
@@ -171,10 +167,32 @@ class MapsActivity : AppCompatActivity(), OnRouteResultListener {
         if (mpRoutingProvider == null) {
             mpRoutingProvider = MPDirectionsService()
             mpRoutingProvider?.setRouteResultListener(this)
+            mpRoutingProvider?.setTravelMode(MPTravelMode.WALKING)
         }
-        mpRoutingProvider?.setTravelMode(MPTravelMode.WALKING)
-        //Queries the MPRouting provider for a route with the hardcoded user location and the point from a location.
-        mpRoutingProvider?.query(mUserLocation, mpLocation.point)
+
+        //Use the locations venue to query an origin point for the route. Within the venue bounds.
+        if (mpLocation.venue == null) {
+            //Open dialog telling user to try another location, as no venue is assigned to the location.
+            AlertDialog.Builder(this)
+                .setTitle("No venue assigned")
+                .setMessage("Please try another location")
+                .show()
+        } else {
+            val venue = MapsIndoors.getVenues()?.getVenueByName(mpLocation.venue!!)
+            MapsIndoors.getLocationsAsync(null, MPFilter.Builder().setMapExtend(MPMapExtend(venue!!.bounds!!)).build()) { list: List<MPLocation?>?, miError: MIError? ->
+                if (!list.isNullOrEmpty()) {
+                    list.first()?.let { location ->
+                        //Queries the MPRouting provider for a route with the hardcoded user location and the point from a location.
+                        mpRoutingProvider?.query(location.point, mpLocation.point)
+                    }
+                }else {
+                    AlertDialog.Builder(this)
+                        .setTitle("No locations found within venue of location")
+                        .setMessage("Please try another location")
+                        .show()
+                }
+            }
+        }
     }
 
 /**
@@ -186,6 +204,7 @@ class MapsActivity : AppCompatActivity(), OnRouteResultListener {
         //Return if either error is not null or the route is null
         if (miError != null || route == null) {
             //TODO: Tell the user about the route not being able to be created etc.
+            runOnUiThread { mBtmnSheetBehavior.state = BottomSheetBehavior.STATE_HIDDEN }
             return
         }
         //Create the MPDirectionsRenderer if it has not been instantiated.
@@ -198,16 +217,6 @@ class MapsActivity : AppCompatActivity(), OnRouteResultListener {
         mNavigationFragment = NavigationFragment.newInstance(route, this)
         //Start a transaction and assign it to the BottomSheet
         addFragmentToBottomSheet(mNavigationFragment)
-    }
-
-    /**
-     * Enables live data for the map.
-     */
-    private fun enableLiveData() {
-        //Enabling live data for the three known live data domains that are enabled for this solution.
-        mMapControl.enableLiveData(LiveDataDomainTypes.AVAILABILITY_DOMAIN)
-        mMapControl.enableLiveData(LiveDataDomainTypes.OCCUPANCY_DOMAIN)
-        mMapControl.enableLiveData(LiveDataDomainTypes.POSITION_DOMAIN)
     }
 
     fun addFragmentToBottomSheet(newFragment: Fragment) {
