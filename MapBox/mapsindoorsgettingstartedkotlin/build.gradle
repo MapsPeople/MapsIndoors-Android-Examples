@@ -45,6 +45,6 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
 
-    implementation 'com.mapspeople.mapsindoors:mapbox-v11:4.10.0'
-    implementation ('com.mapbox.maps:android:11.9.0')
+    implementation 'com.mapspeople.mapsindoors:mapbox-v11:4.11.3'
+    implementation ('com.mapbox.maps:android:11.11.0')
 }
