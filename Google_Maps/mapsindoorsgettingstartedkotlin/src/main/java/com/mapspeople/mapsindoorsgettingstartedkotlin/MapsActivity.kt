@@ -47,7 +47,7 @@ class MapsActivity : AppCompatActivity(), OnMapReadyCallback, OnRouteResultListe
                 .findFragmentById(R.id.map) as SupportMapFragment
         mapFragment.getMapAsync(this)
 
-        MapsIndoors.load(applicationContext, "d876ff0e60bb430b8fabb145", null)
+        MapsIndoors.load(applicationContext, "02c329e6777d431a88480a09", null)
 
         mapFragment.view?.let {
             mapView = it
